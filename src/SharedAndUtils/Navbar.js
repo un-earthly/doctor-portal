@@ -6,7 +6,7 @@ export default function Navbar() {
         <li><NavLink to='/about'>About</NavLink></li>
         <li><NavLink to='/appointment'>Appointment</NavLink></li>
         <li><NavLink to='/reviews'>Reviews</NavLink></li>
-        <li><NavLink to='/contact'>Link</NavLink></li>
+        <li><NavLink to='/contact'>Contact</NavLink></li>
         <li><NavLink to='/login'>Login</NavLink></li></>
     return (
         <div class="navbar bg-base-100">

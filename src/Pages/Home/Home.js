@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '../../SharedAndUtils/Button'
 import Contact from './Contact'
 import InfoCard from './InfoCard'
@@ -6,6 +6,8 @@ import ServiceCard from './ServiceCard'
 import Testimonials from './Testimonials'
 
 export default function Home() {
+
+
     const infoData = [
         {
             img: "https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/8b398f941ab66be06f6ac9a03540a3ebafedd99f/assets/icons/clock.svg",
@@ -142,7 +144,7 @@ export default function Home() {
                 </div >
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-5 py-20">
                     {
-                        testimonialsData.map(testimonial => <Testimonials img={testimonial.img} review={testimonial.review} name={testimonial.name} location={testimonial.location} />)
+                        testimonialsData.map(testimonial => <Testimonials img={testimonial.img} key={testimonial.img} review={testimonial.review} name={testimonial.name} location={testimonial.location} />)
                     }
                 </div>
             </div >

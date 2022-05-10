@@ -10,10 +10,14 @@ import Footer from "./SharedAndUtils/Footer";
 import Navbar from "./SharedAndUtils/Navbar";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Helmet from "react-helmet";
 
 function App() {
   return (
     <div >
+      <Helmet>
+        <title>Home - Doctors Portal</title>
+      </Helmet>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
