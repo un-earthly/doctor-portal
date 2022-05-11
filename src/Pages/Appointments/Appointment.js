@@ -5,9 +5,11 @@ import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 import axios from 'axios';
 import AppointmentCard from './AppointmentCard';
+import BookingModal from './BookingModal';
 export default function Appointment() {
     const [date, setDate] = useState(new Date())
     const [appointments, setAppointments] = useState([])
+    const [treatment, setTreatment] = useState(null)
     useEffect(() => {
         axios.get('data.json')
             .then(res => setAppointments(res.data))
@@ -36,9 +38,10 @@ export default function Appointment() {
 
                 <div className="grid gid-cols-1 lg:grid-cols-3 gap-4 lg:px-4">
                     {
-                        appointments.map(appointment => <AppointmentCard appointment={appointment} />)
+                        appointments.map(appointment => <AppointmentCard treatment={setTreatment} appointment={appointment} />)
                     }
                 </div>
+                {treatment && <BookingModal date={format(date, 'P')} appointment={treatment} ></BookingModal>}
             </div>
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../../SharedAndUtils/Button'
 
-export default function AppointmentCard({ appointment }) {
+export default function AppointmentCard({ appointment, treatment }) {
     const { name, slots } = appointment;
     return (
         <div class="card lg:max-w-full shadow-md">
@@ -13,10 +13,8 @@ export default function AppointmentCard({ appointment }) {
                         : <span className='text-red-500'>Try another date.</span>
                 }</p>
                 <p>{slots.length} {slots.length > 1 ? 'spaces' : 'space'} available</p>
-                {slots.length ?
-                    <Button>Book Appointment</Button>
-                    : <button disabled className='btn'>Book Appointment </button>
-                }            </div>
+                <label onClick={() => treatment(appointment)} for="bookingModal" class="btn text-white btn-secondary">open modal</label>
+            </div>
         </div>
     )
 }
