@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InfoCard({ img, title, desc, classes }) {
     return (
-        <div class={`${classes} rounded-2xl flex items-center justify-center`}>
+        <div class={`${classes} w-full rounded-2xl flex items-center justify-center`}>
             <div class="hero-content flex-col lg:flex-row">
                 <img src={img} class="max-w-sm rounded-lg" />
                 <div class=' text-white'>

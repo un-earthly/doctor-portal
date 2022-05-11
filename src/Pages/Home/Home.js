@@ -77,12 +77,12 @@ export default function Home() {
     ]
     return (
         <div>
-            <div class=' px-5'>
+            <div class='lg:px-5 px-4'>
                 {/* banner  */}
-                <div class="hero min-h-screen bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/bg.png')]">
-                    <div class="hero-content flex-col lg:flex-row-reverse">
-                        <div className="flex-1"> <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/chair.png" class="max-w-sm rounded-lg shadow-2xl" /></div>
-                        <div class='flex-1'>
+                <div class="lg:hero min-h-screen bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/bg.png')]">
+                    <div class="lg:hero-content w-full flex-col lg:flex-row-reverse">
+                        <div className="lg:flex-1"> <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/chair.png" class="max-w-sm rounded-lg shadow-2xl w-full" /></div>
+                        <div class='lg:flex-1'>
                             <h1 class="text-5xl font-bold">Your New Smile Starts Here</h1>
                             <p class="py-6 capitalize">Hello Docs!This is Docs Portal. Find latest news and updates here!!</p>
                             <Button>Get Started</Button>
@@ -98,7 +98,7 @@ export default function Home() {
                 {/* services */}
                 <div className='mt-20'>
                     <p className="text-center text-primary">OUR SERVICES</p>
-                    <p className="text-center text-4xl">Services We Provide</p>
+                    <p className="text-center lg:text-4xl text-3xl">Services We Provide</p>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-20">
                         {
@@ -108,9 +108,9 @@ export default function Home() {
                 </div>
             </div>
             {/* dental care banner */}
-            <div class="hero min-h-screen px-36">
-                <div class="hero-content flex-col lg:flex-row space-x-10">
-                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/treatment.png" class="max-w-sm rounded-lg" />
+            <div class="hero min-h-screen lg:px-36 py-10">
+                <div class="lg:hero-content flex-col lg:flex-row lg:space-x-10 px-5 w-full">
+                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/treatment.png" class="lg:max-w-sm rounded-lg" />
                     <div>
                         <h1 class="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
                         <p class="py-6">Providing All The Help & Advice That You Will Ever Need To Maintain Optimum Oral Health.Wide Range of Cosmetic Dental Services Medically sanitised & sterilised centrally located, West Perth general & cosmetic dentist.Customised and Individual dental treatment plans with high-quality diagnostics .</p>
@@ -120,9 +120,9 @@ export default function Home() {
             </div>
 
             {/* APPOINTMENT BANNER */}
-            <div className="text-white bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/appointment.png')]">
+            <div className=" py-10 text-white bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/appointment.png')]">
                 <div class="flex items-center justify-center flex-col lg:flex-row">
-                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/doctor.png" class="w-1/2 h-1/2 -mt-32 rounded-lg " />
+                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/doctor.png" class="w-1/2 h-1/2 -mt-32 rounded-lg hidden lg:block " />
                     <div className='space-y-2 p-2 lg:p-10'>
                         <p className="text-secondary">Appointment</p>
                         <p className="text-4xl">Make an appointment Today</p>
@@ -132,7 +132,7 @@ export default function Home() {
                 </div>
             </div>
             {/* testimonial */}
-            <div className="flex flex-col px-16 py-32">
+            <div className="flex flex-col lg:px-16 px-5 py-32">
                 <div className="flex items-center justify-between">
                     <div>
                         <p className="text-primary">Testimonial</p>
@@ -142,7 +142,7 @@ export default function Home() {
                         <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/8b398f941ab66be06f6ac9a03540a3ebafedd99f/assets/icons/quote.svg" className='lg:w-44 w-24' alt="" />
                     </div>
                 </div >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-5 py-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:px-5 py-20">
                     {
                         testimonialsData.map(testimonial => <Testimonials img={testimonial.img} key={testimonial.img} review={testimonial.review} name={testimonial.name} location={testimonial.location} />)
                     }
