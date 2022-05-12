@@ -1,13 +1,37 @@
 import React from 'react'
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import SetTitle from '../../SharedAndUtils/SetTitle'
 import Social from '../../SharedAndUtils/Social';
 
 export default function Register() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const onSubmit = data => {
+        createUserWithEmailAndPassword(data.email, data.password)
+    };
+
+    if (error) {
+        return (
+            <div>
+                <p>Error: {error.message}</p>
+            </div>
+        );
+    }
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    if (user) {
+        toast(user.user.email)
+    }
     return (
         <div class='max-w-sm p-5 rounded-lg shadow-lg mx-auto space-y-5'>
             <SetTitle pageTitle='Register' />

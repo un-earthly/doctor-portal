@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import AppointmentCard from './AppointmentCard';
 import BookingModal from './BookingModal';
+import auth from '../../firebase.init'
 export default function Appointment() {
     const [date, setDate] = useState(new Date())
     const [appointments, setAppointments] = useState([])
@@ -13,6 +14,8 @@ export default function Appointment() {
     useEffect(() => {
         axios.get('http://localhost/appointment')
             .then(res => setAppointments(res.data))
+
+
     }, [])
     return (
         <div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '../../SharedAndUtils/Button'
 
 export default function AppointmentCard({ appointment, treatment }) {
     const { name, slots } = appointment;
@@ -13,7 +12,7 @@ export default function AppointmentCard({ appointment, treatment }) {
                         : <span className='text-red-500'>Try another date.</span>
                 }</p>
                 <p>{slots.length} {slots.length > 1 ? 'spaces' : 'space'} available</p>
-                <label onClick={() => treatment(appointment)} for="bookingModal" class="btn text-white btn-secondary">open modal</label>
+                <label onClick={() => treatment(appointment)} for="bookingModal" disabled={slots.length === 0} class="btn text-white 'bg-gradient-to-l from-primary to-secondary">open modal</label>
             </div>
         </div>
     )
