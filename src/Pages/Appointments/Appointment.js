@@ -11,7 +11,7 @@ export default function Appointment() {
     const [appointments, setAppointments] = useState([])
     const [treatment, setTreatment] = useState(null)
     useEffect(() => {
-        axios.get('data.json')
+        axios.get('http://localhost/appointment')
             .then(res => setAppointments(res.data))
     }, [])
     return (

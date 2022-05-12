@@ -22,9 +22,9 @@ export default function BookingModal({ appointment, date }) {
                         <select class="select select-bordered w-full" {...register("slot", { required: true })}>
                             {slots.map(slot => <option value={slot} key={slot}>{slot}</option>)}
                         </select>
-                        {/* <input class="input w-full border shadow-none focus:outline-none border-gray-300" placeholder='Full Name' id='name' type='text' {...register("name", { required: true })} />
+                        <input class="input w-full border shadow-none focus:outline-none border-gray-300" placeholder='Full Name' id='name' type='text' {...register("name", { required: true })} />
                         <input class="input w-full border shadow-none focus:outline-none border-gray-300" placeholder='Phone Number' id='phone' type='tel' {...register("phone", { required: true })} />
-                        <input class="input w-full border shadow-none focus:outline-none border-gray-300" placeholder='Email' id='email' type='text' {...register("email", { required: true })} /> */}
+                        <input class="input w-full border shadow-none focus:outline-none border-gray-300" placeholder='Email' id='email' type='text' {...register("email", { required: true })} />
 
                         <input class='btn btn-accent w-full' type="submit" />
                     </form>
