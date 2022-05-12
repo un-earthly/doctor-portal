@@ -1,34 +1,37 @@
 import React from 'react'
 import SetTitle from '../../SharedAndUtils/SetTitle'
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Social from '../../SharedAndUtils/Social';
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import Loading from '../../SharedAndUtils/Loading';
 export default function Login() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from.pathname
   const [
     signInWithEmailAndPassword,
     user,
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    getValues
+  } = useForm();
   const onSubmit = data => {
     signInWithEmailAndPassword(data.email, data.password)
   };
-  if (error) {
-    return (
-      <div>
-        <p>Error: {error.message}</p>
-      </div>
-    );
-  }
-  if (loading) {
-    return <p>Loading...</p>;
+  const [sendPasswordResetEmail, sending, forgetPassErr] = useSendPasswordResetEmail(auth);
+  if (loading || sending) {
+    return <Loading />
   }
   if (user) {
     toast(user.user.email)
+    navigate(from, { replace: true })
   }
   return (
     <div className='max-w-sm p-5 rounded-lg shadow-lg mx-auto space-y-5'>
@@ -39,12 +42,19 @@ export default function Login() {
         <div>
           <label htmlFor="email">Email</label>
           <input className="input w-full border shadow-none focus:outline-none border-gray-400" id='email' type='email' {...register("email", { required: true })} />
+          {forgetPassErr && <span className="text-red-500">{forgetPassErr.message}</span>}
         </div>
         <div>
           <label htmlFor="password">Password</label>
           <input className="input w-full border shadow-none focus:outline-none border-gray-400" id='password' type={`text`} {...register("password", { required: true })} />
         </div>
-        <p>Forgot Password ?</p>
+        <p
+          onClick={async () => {
+            await sendPasswordResetEmail(JSON.stringify(getValues('email')).split('"').join(''));
+          }}
+
+        >Forgot Password ?</p>
+        {error && <span className='text-red-500 mt-20'>{error.message}</span>}
         <input className='btn btn-accent w-full' type="submit" />
         <p className='text-center'>New to Doctors Portal?<Link to='/register' className="text-secondary">
           Create new account</Link></p>

@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import Footer from '../../SharedAndUtils/Footer'
+import { Link } from 'react-router-dom'
 import Button from '../../SharedAndUtils/Button'
 import Contact from './Contact'
 import InfoCard from './InfoCard'
@@ -81,7 +83,7 @@ export default function Home() {
                 {/* banner  */}
                 <div className="lg:hero min-h-screen bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/bg.png')]">
                     <div className="lg:hero-content w-full flex-col lg:flex-row-reverse">
-                        <div className="lg:flex-1"> <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/chair.png" className="max-w-sm rounded-lg shadow-2xl w-full" /></div>
+                        <div className="lg:flex-1 flex items-center justify-center"> <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/chair.png" alt='treatment chair' className="max-w-lg rounded-lg shadow-2xl w-full" /></div>
                         <div className='lg:flex-1'>
                             <h1 className="text-5xl font-bold">Your New Smile Starts Here</h1>
                             <p className="py-6 capitalize">Hello Docs!This is Docs Portal. Find latest news and updates here!!</p>
@@ -110,7 +112,7 @@ export default function Home() {
             {/* dental care banner */}
             <div className="hero min-h-screen lg:px-36 py-10">
                 <div className="lg:hero-content flex-col lg:flex-row lg:space-x-10 px-5 w-full">
-                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/treatment.png" className="lg:max-w-sm rounded-lg" />
+                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/treatment.png" alt='treatment' className="lg:max-w-sm rounded-lg" />
                     <div>
                         <h1 className="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
                         <p className="py-6">Providing All The Help & Advice That You Will Ever Need To Maintain Optimum Oral Health.Wide Range of Cosmetic Dental Services Medically sanitised & sterilised centrally located, West Perth general & cosmetic dentist.Customised and Individual dental treatment plans with high-quality diagnostics .</p>
@@ -122,12 +124,12 @@ export default function Home() {
             {/* APPOINTMENT BANNER */}
             <div className=" py-10 text-white bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/appointment.png')]">
                 <div className="flex items-center justify-center flex-col lg:flex-row">
-                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/doctor.png" className="w-1/2 h-1/2 -mt-32 rounded-lg hidden lg:block " />
+                    <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/doctor.png" alt='doctors' className="w-1/2 h-1/2 -mt-32 rounded-lg hidden lg:block " />
                     <div className='space-y-2 p-2 lg:p-10'>
                         <p className="text-secondary">Appointment</p>
                         <p className="text-4xl">Make an appointment Today</p>
                         <p className="py-6">Providing All The Help & Advice That You Will Ever Need To Maintain Optimum Oral Health.Wide Range of Cosmetic Dental Services Medically sanitised & sterilised centrally located, West Perth general & cosmetic dentist.Customised and Individual dental treatment plans with high-quality diagnostics .</p>
-                        <Button className="btn btn-primary">Get Started</Button>
+                        <Link to='/appointment'><Button className="btn btn-primary">Get Started</Button></Link>
                     </div>
                 </div>
             </div>
@@ -151,6 +153,8 @@ export default function Home() {
 
             {/* Contact */}
             < Contact />
+
+            <Footer />
         </div >
     )
 }
