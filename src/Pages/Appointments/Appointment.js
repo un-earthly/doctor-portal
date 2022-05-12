@@ -23,10 +23,10 @@ export default function Appointment() {
             <SetTitle pageTitle='Appointment' />
             {/* banner  */}
 
-            <div class="lg:hero min-h-screen bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/bg.png')]">
-                <div class="lg:hero-content w-full flex-col lg:flex-row-reverse">
-                    <div className="lg:flex-1"> <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/chair.png" class="max-w-sm rounded-lg shadow-2xl w-full" /></div>
-                    <div class='lg:flex-1 flex items-center justify-center flex-col'>
+            <div className="lg:hero min-h-screen bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/bg.png')]">
+                <div className="lg:hero-content w-full flex-col lg:flex-row-reverse">
+                    <div className="lg:flex-1"> <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/chair.png" className="max-w-sm rounded-lg shadow-2xl w-full" /></div>
+                    <div className='lg:flex-1 flex items-center justify-center flex-col'>
                         <DayPicker
                             mode="single"
                             selected={date}

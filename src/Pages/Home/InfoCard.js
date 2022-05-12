@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function InfoCard({ img, title, desc, classes }) {
     return (
-        <div class={`${classes} w-full rounded-2xl flex items-center justify-center`}>
-            <div class="hero-content flex-col lg:flex-row">
-                <img src={img} class="max-w-sm rounded-lg" />
-                <div class=' text-white'>
-                    <h1 class="text-2xl font-bold">{title}</h1>
-                    <p class="py-2">{desc}</p>
+        <div className={`${classes} w-full rounded-2xl flex items-center justify-center`}>
+            <div className="hero-content flex-col lg:flex-row">
+                <img src={img} className="max-w-sm rounded-lg" />
+                <div className=' text-white'>
+                    <h1 className="text-2xl font-bold">{title}</h1>
+                    <p className="py-2">{desc}</p>
                 </div>
             </div>
         </div>

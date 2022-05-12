@@ -31,22 +31,22 @@ export default function Login() {
     toast(user.user.email)
   }
   return (
-    <div class='max-w-sm p-5 rounded-lg shadow-lg mx-auto space-y-5'>
+    <div className='max-w-sm p-5 rounded-lg shadow-lg mx-auto space-y-5'>
       <SetTitle pageTitle='Login' />
 
-      <form onSubmit={handleSubmit(onSubmit)} class='mx-auto space-y-5'>
-        <h1 class='text-xl text-center'>Login</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className='mx-auto space-y-5'>
+        <h1 className='text-xl text-center'>Login</h1>
         <div>
           <label htmlFor="email">Email</label>
-          <input class="input w-full border shadow-none focus:outline-none border-gray-400" id='email' type='email' {...register("email", { required: true })} />
+          <input className="input w-full border shadow-none focus:outline-none border-gray-400" id='email' type='email' {...register("email", { required: true })} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input class="input w-full border shadow-none focus:outline-none border-gray-400" id='password' type={`text`} {...register("password", { required: true })} />
+          <input className="input w-full border shadow-none focus:outline-none border-gray-400" id='password' type={`text`} {...register("password", { required: true })} />
         </div>
         <p>Forgot Password ?</p>
-        <input class='btn btn-accent w-full' type="submit" />
-        <p class='text-center'>New to Doctors Portal?<Link to='/register' className="text-secondary">
+        <input className='btn btn-accent w-full' type="submit" />
+        <p className='text-center'>New to Doctors Portal?<Link to='/register' className="text-secondary">
           Create new account</Link></p>
       </form>
       <Social />
