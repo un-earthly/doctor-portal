@@ -8,7 +8,7 @@ import SetTitle from '../../SharedAndUtils/SetTitle'
 import Social from '../../SharedAndUtils/Social';
 
 export default function Register() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [
         createUserWithEmailAndPassword,
         user,

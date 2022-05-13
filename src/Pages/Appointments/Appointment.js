@@ -41,10 +41,10 @@ export default function Appointment() {
 
                 <div className="grid gid-cols-1 lg:grid-cols-3 lg:my-24 gap-4 lg:px-4">
                     {
-                        appointments.map(appointment => <AppointmentCard treatment={setTreatment} appointment={appointment} />)
+                        appointments.map(appointment => <AppointmentCard treatment={setTreatment} key={appointment._id} appointment={appointment} />)
                     }
                 </div>
-                {treatment && <BookingModal date={format(date, 'P')} appointment={treatment} ></BookingModal>}
+                {treatment && <BookingModal date={format(date, 'PP')} appointment={treatment} ></BookingModal>}
             </div>
 
 

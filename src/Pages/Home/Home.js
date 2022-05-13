@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '../../SharedAndUtils/Footer'
 import { Link } from 'react-router-dom'
 import Button from '../../SharedAndUtils/Button'
-import Contact from './Contact'
+import Contact from './HomeContact'
 import InfoCard from './InfoCard'
 import ServiceCard from './ServiceCard'
 import Testimonials from './Testimonials'
@@ -122,7 +122,7 @@ export default function Home() {
             </div>
 
             {/* APPOINTMENT BANNER */}
-            <div className=" py-10 text-white bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/appointment.png')]">
+            <div className="my-10 text-white bg-[url('https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/appointment.png')]">
                 <div className="flex items-center justify-center flex-col lg:flex-row">
                     <img src="https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal/main/assets/images/doctor.png" alt='doctors' className="w-1/2 h-1/2 -mt-32 rounded-lg hidden lg:block " />
                     <div className='space-y-2 p-2 lg:p-10'>

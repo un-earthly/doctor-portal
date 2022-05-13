@@ -11,8 +11,8 @@ export default function AppointmentCard({ appointment, treatment }) {
                         ? <span>{slots[0]}</span>
                         : <span className='text-red-500'>Try another date.</span>
                 }</p>
-                <p>{slots.length} {slots.length > 1 ? 'spaces' : 'space'} available</p>
-                <label onClick={() => treatment(appointment)} for="bookingModal" disabled={slots.length === 0} className="btn text-white 'bg-gradient-to-l from-primary to-secondary">open modal</label>
+                <p>{slots.length} {slots.length > 1 ? 'Booking Slots' : 'Booking Slot'} available</p>
+                <label onClick={() => treatment(appointment)} htmlFor="bookingModal" disabled={slots.length === 0} className="btn text-white 'bg-gradient-to-l from-primary to-secondary">open modal</label>
             </div>
         </div>
     )
