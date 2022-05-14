@@ -56,7 +56,7 @@ export default function Login() {
         >Forgot Password ?</p>
         {error && <span className='text-red-500 mt-20'>{error.message}</span>}
         <input className='btn btn-accent w-full' type="submit" />
-        <p className='text-center'>New to Doctors Portal?<Link to='/register' className="text-secondary">
+        <p className='text-center'>New to Doctors Portal?<Link to='/login/register' className="text-secondary">
           Create new account</Link></p>
       </form>
       <Social />
