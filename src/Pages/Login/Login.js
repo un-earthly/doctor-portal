@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import Loading from '../../SharedAndUtils/Loading';
+import useToken from '../../Hooks/useToken';
 export default function Login() {
   const navigate = useNavigate()
   const location = useLocation()
@@ -22,16 +23,19 @@ export default function Login() {
     handleSubmit,
     getValues
   } = useForm();
+
+  const token = useToken(user)
+
   const onSubmit = data => {
     signInWithEmailAndPassword(data.email, data.password)
   };
   const [sendPasswordResetEmail, sending, forgetPassErr] = useSendPasswordResetEmail(auth);
   if (loading || sending) {
-    return <Loading />
+    return <progress className="progress w-56 mx-auto block"></progress>
   }
-  if (user) {
-    toast(user.user.email)
-    navigate(from, { replace: true })
+  if (token) {
+    toast.success(user?.user?.displayName)
+    // navigate(from || '/', { replace: true })
   }
   return (
     <div className='max-w-sm p-5 rounded-lg shadow-lg mx-auto space-y-5'>

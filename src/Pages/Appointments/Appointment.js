@@ -12,7 +12,7 @@ export default function Appointment() {
     const [appointments, setAppointments] = useState([])
     const [treatment, setTreatment] = useState(null)
     useEffect(() => {
-        axios.get('https://sheltered-cove-23713.herokuapp.com/appointment')
+        axios.get('http://localhost/appointment')
             .then(res => setAppointments(res.data))
 
 

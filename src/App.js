@@ -12,6 +12,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard.js";
 import MyAppointments from "./Pages/Dashboard/MyAppointments.js";
 import MyHistory from "./Pages/Dashboard/MyHistory.js";
 import MyReview from "./Pages/Dashboard/MyReview.js";
+import AllUser from "./Pages/Dashboard/AllUser.js";
 import Reviews from "./Pages/Reviews.js";
 import Contact from "./Pages/Contact.js";
 import Login from "./Pages/Login/Login.js";
@@ -39,9 +40,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/appointment" element={<RequireAuth><Appointment /></RequireAuth>} />
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
-          <Route index element={<MyAppointments />}></Route>
+          <Route path='my-appointments' element={<MyAppointments />}></Route>
           <Route path='my-history' element={<MyHistory />}></Route>
           <Route path='my-review' element={<MyReview />}></Route>
+          <Route path='all-user' element={<AllUser />}></Route>
         </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<Contact />} />

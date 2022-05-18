@@ -1,9 +1,10 @@
 import React from 'react'
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
 import SetTitle from '../../SharedAndUtils/SetTitle'
 import Social from '../../SharedAndUtils/Social';
 
@@ -15,22 +16,26 @@ export default function Register() {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-    const onSubmit = data => {
-        createUserWithEmailAndPassword(data.email, data.password)
+    const [updateProfile, updating, updateProfileErr] = useUpdateProfile(auth);
+    const [token] = useToken(user)
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
     };
 
-    if (error) {
+    if (error || updateProfileErr) {
         return (
             <div>
                 <p>Error: {error.message}</p>
             </div>
         );
     }
-    if (loading) {
-        return <p>Loading...</p>;
+    if (loading || updating) {
+        return <progress className="progress w-56 mx-auto block"></progress>
     }
-    if (user) {
-        toast(user.user.email)
+    if (token) {
+        toast(user.user?.displayName)
+        // navigate('/')
     }
     return (
         <div className='max-w-sm p-5 rounded-lg shadow-lg mx-auto space-y-5'>
